@@ -21,6 +21,10 @@
     "typescript": "^4.*",
     "web-vitals": "^2.*"
   },
+  "prettier": {
+    "tabWidth": 3,
+    "singleQuote": true
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
