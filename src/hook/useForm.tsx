@@ -28,5 +28,6 @@ export const useForm = <T extends Partial<T>>( initState:T ) => {
       onChange,
       resetForm,
       reload,
+      setFormData
    }
 };

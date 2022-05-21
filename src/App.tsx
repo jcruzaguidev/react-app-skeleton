@@ -1,14 +1,15 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { StylesGlobal } from './styles/Global.styled';
 import Navigation from "./routes/Navigation";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { StylesGlobal } from "./styles/Global.styled";
+import AuthProvider from "context/authContext/AuthProvider";
 
-function App() {
+export const App = () => {
    return (
       <>
          <StylesGlobal />
-         <Navigation />
+         <AuthProvider>
+            <Navigation />
+         </AuthProvider>
       </>
    );
 }
-
-export default App;
