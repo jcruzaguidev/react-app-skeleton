@@ -14,7 +14,9 @@ export const useProductList = () => {
       ? JSON.parse(getLocaleStorage('enuna_commerce_data'))
       : [];
    const [products, setProducts] = useState<ProductsData[]>([]);
-   const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>(
+   const [shoppingCart, setShoppingCart] = useState<{
+      [key: string]: ProductInCart;
+   }>(
       getLocaleStorage('enuna_shopping_cart')
          ? JSON.parse(getLocaleStorage('enuna_shopping_cart'))
          : {}
@@ -24,36 +26,42 @@ export const useProductList = () => {
       message: 'Cargando datos...',
    });
 
-   const onProductCountChange = ({ product, count }: { product: ProductsData; count: number }) => {
-    setShoppingCart((oldShoppingCart) => {
-     if (count === 0) {
-      const { [product.menuKey]: toDelete, ...rest } = oldShoppingCart;
-      setLocalStorage('enuna_shopping_cart', JSON.stringify(rest));
-      return rest;
-     }
+   const onProductCountChange = ({
+      product,
+      count,
+   }: {
+      product: ProductsData;
+      count: number;
+   }) => {
+      setShoppingCart((oldShoppingCart) => {
+         if (count === 0) {
+            const { [product.menuKey]: toDelete, ...rest } = oldShoppingCart;
+            setLocalStorage('enuna_shopping_cart', JSON.stringify(rest));
+            return rest;
+         }
 
-     const data = {
-      ...oldShoppingCart,
-      [product.menuKey]: { ...product, count },
-     };
+         const data = {
+            ...oldShoppingCart,
+            [product.menuKey]: { ...product, count },
+         };
 
-     setLocalStorage('enuna_shopping_cart', JSON.stringify(data));
-     return data;
-    });
+         setLocalStorage('enuna_shopping_cart', JSON.stringify(data));
+         return data;
+      });
    };
 
    const handleSubmit = () => {
-    history.push(`/checkout`);
+      history.push(`/checkout`);
    };
 
    return {
-    commerce,
-    products,
-    setProducts,
-    alert,
-    setAlert,
-    shoppingCart,
-    onProductCountChange,
-    handleSubmit,
+      commerce,
+      products,
+      setProducts,
+      alert,
+      setAlert,
+      shoppingCart,
+      onProductCountChange,
+      handleSubmit,
    };
 };
