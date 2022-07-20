@@ -12,7 +12,7 @@ interface Props {
 const ReservationCard = (props:Props) => {
    const history = useHistory();
    const { item, clicked } = props;
-   const { commerceKey, commerceName, reservationStatus, reservationRegister, persons, colorStatus, reservationKey, regionName, districtName } = item;
+   const { day, time, commerceKey, commerceName, reservationStatus, persons, colorStatus, reservationKey, regionName, districtName } = item;
 
    const handleViewDetail = () => {
       clicked && history.push(`/reservation/detail/${reservationKey}`);
@@ -29,7 +29,7 @@ const ReservationCard = (props:Props) => {
                         <Title style={{ color:colors.gray100, backgroundColor:"#FFF" }} type="sm">{ commerceName }</Title>
                         <Title style={{ color:colorStatus, backgroundColor:"#FFF" }} type="xs">{ reservationStatus }</Title>
                         <Title style={{ color:colors.gray100, backgroundColor:"#FFF" }} type="xs">{ regionName } | { districtName }</Title>
-                        <Title style={{ color:colors.gray100, backgroundColor:"#FFF" }} type="xs">{ reservationRegister }</Title>
+                        <Title style={{ color:colors.gray100, backgroundColor:"#FFF" }} type="xs">{ day } | { time }</Title>
                         <Title style={{ color:colors.gray100, backgroundColor:"#FFF" }} type="xs">{ persons }</Title>
                      </div>
                   </div>

@@ -5,6 +5,8 @@ import {useHistory} from 'react-router-dom';
 
 const INITIAL_COMMERCE = {
    reservationKey: "",
+   day: '',
+   time: '',
    observation: "",
    commerceKey: "",
    commerceName: "",

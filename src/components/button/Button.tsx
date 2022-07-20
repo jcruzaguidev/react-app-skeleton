@@ -2,7 +2,7 @@ import React from 'react';
 import { StylesButton } from './Button.styled';
 
 interface Props {
-   type: 'sm' | 'md';
+   type: 'sm' | 'md' | 'menu';
    color: 'red' | 'orange';
    title: string;
    disabled?: boolean;

@@ -21,7 +21,8 @@ const Reservations = () => {
             }
          })
       })();
-   }, [reservationHistory, userKey]);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, []);
 
    return (
       <>

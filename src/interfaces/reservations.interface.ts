@@ -6,6 +6,8 @@ export interface Reservations {
 export interface ReservationsData {
    reservationKey: string;
    observation: string;
+   day: string;
+   time: string;
    commerceKey: string;
    commerceName: string;
    regionName: string;
@@ -31,6 +33,8 @@ export interface ReservationDetailData {
 export interface Commerce {
    reservationKey: string;
    observation: string;
+   day: string;
+   time: string;
    commerceKey: string;
    commerceName: string;
    regionName: string;

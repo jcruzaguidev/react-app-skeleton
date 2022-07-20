@@ -36,7 +36,7 @@ const MenuWeb = () => {
                      <img src={process.env.PUBLIC_URL + `/assets/logo.svg`} alt="EnUna" width={50}/>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse className="justify-content-end">
+                  <Navbar.Collapse className="justify-content-end menu-web">
                      <Nav>
                         <Nav.Item>
                            <Nav.Link href="#home">Inicio</Nav.Link>
@@ -57,12 +57,12 @@ const MenuWeb = () => {
                                     <Nav.Link href="#configuration">Configuración</Nav.Link>
                                  </Nav.Item>
                                  <Nav.Item>
-                                    <Button type="sm" color="orange" title="Cerrar Sesión" onClick={ handleLogout } />
+                                    <Button type="menu" color="orange" title="Cerrar Sesión" onClick={ handleLogout } />
                                  </Nav.Item>
                               </>
                            ) : (
                               <Nav.Item>
-                                 <Button type="sm" color="red" title="Ingresar" onClick={ handleLoggin } />
+                                 <Button type="menu" color="red" title="Ingresar" onClick={ handleLoggin } />
                               </Nav.Item>
                            )
                         }

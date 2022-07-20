@@ -1,16 +1,18 @@
-import styled from "styled-components";
-import colors from "styles/colors";
+import styled from 'styled-components';
+import colors from 'styles/colors';
 
 export const StylesButton = styled.div`
    .md {
-      margin-bottom: 5px;
       padding: 14px 18px !important;
       font-size: 11px !important;
    }
    .sm {
-      margin-top: 6px;
       padding: 7px 10px !important;
       font-size: 9px !important;
+   }
+   .menu {
+      min-height: 36px;
+      font-size: 11px !important;
    }
    .btn-custom,
    .btn-custom:focus {
@@ -29,9 +31,9 @@ export const StylesButton = styled.div`
       color: #FFF;
    }
    .orange {
-      background-color: ${ colors.orange100 } !important;
+      background-color: ${colors.orange100} !important;
    }
    .red {
-      background-color: ${ colors.red100 } !important;
+      background-color: ${colors.red100} !important;
    },
-`
+`;

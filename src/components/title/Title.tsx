@@ -10,7 +10,7 @@ export const Title = ({ type, children, ...props }:Props) => {
 
    return (
       <StylesTitle>
-         <h1 className={`titlex title-${ type }`} {...props}>{ children }</h1>
+         <h1 className={`title-${ type }`} {...props}>{ children }</h1>
       </StylesTitle>
    );
 };

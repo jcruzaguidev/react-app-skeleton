@@ -37,7 +37,7 @@ export const ModalFilter = (props: Props) => {
          });
       })();
    // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [setDistrictData, setCategoryData]);
+   }, []);
 
    const handleSetFilter = () => {
       setLocalStorage("enuna_filter_category", formData.categoryKey);
