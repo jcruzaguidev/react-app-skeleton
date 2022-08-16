@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import {getLocaleStorage, setLocalStorage} from 'utils/session';
+import { getLocaleStorage, setLocalStorage } from 'utils/session';
 import { CommerceServices } from "service/commerceServices";
 import { useBooking } from "hook/useBooking";
 import useTitle from 'hook/UI/useTitle';
@@ -8,7 +8,7 @@ import { useForm } from "hook/useForm";
 import { ButtonFloat, ModalAlert, P, Select, Title } from "components";
 import BookingImage from "./BookingImage";
 import { MenuWeb } from "layouts";
-import {scrollToTop} from 'utils/utils';
+import { scrollToTop } from 'utils/utils';
 
 const INITIAL_STATE = {
    persons: getLocaleStorage("enuna_booking") ? JSON.parse(getLocaleStorage("enuna_booking")).persons : "",
@@ -36,19 +36,19 @@ const Booking = () => {
             console.log(error);
          })
       })();
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {
       (async () => {
          (persons && commerceDayKey) &&
-         await searchHoursAvailable(commerce.commerceKey, persons, commerceDayKey).then(res => {
-            setHoursData(res.data);
-         });
+            await searchHoursAvailable(commerce.commerceKey, persons, commerceDayKey).then(res => {
+               setHoursData(res.data);
+            });
       })();
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [reload]);
-   
+
    const handleSubmit = () => {
       if (formData.persons && formData.commerceDayKey && formData.commerceHourKey) {
          setLocalStorage("enuna_booking", JSON.stringify(formData));
@@ -64,25 +64,25 @@ const Booking = () => {
          <div className="container-fluid">
             <div className="row mbox">
                <div className="col-xxl-8 offset-xxl-2 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12">
-                  
+
                   <div className="row">
                      <div className="col-sm-6">
-                        <BookingImage commerceKey={ commerce.commerceKey } />
+                        <BookingImage commerceKey={commerce.commerceKey} />
                      </div>
                      <div className="col-sm-6">
-                        <Title type="lg">{ commerce.commerceName }</Title>
-                        <Title type="md">{ commerce.districtName } <br/> { commerce.commerceAddress }</Title>
-                        <P>{ commerce.commerceBio }</P>
+                        <Title type="lg">{commerce.commerceName}</Title>
+                        <Title type="md">{commerce.districtName} <br /> {commerce.commerceAddress}</Title>
+                        <P>{commerce.commerceBio}</P>
                      </div>
                   </div>
-                  
+
                   <div className="row mt-3">
                      <div className="col-sm-4">
                         <Select label="Fecha" name="commerceDayKey" onChange={onChange} value={commerceDayKey}  >
                            <option value="">Seleccione Día</option>
                            {
                               daysData.map((day, index) => (
-                                 <option key={ index } value={ day.commerceDayKey }>{ day.commerceDay }</option>
+                                 <option key={index} value={day.commerceDayKey}>{day.commerceDay}</option>
                               ))
                            }
                         </Select>
@@ -92,7 +92,7 @@ const Booking = () => {
                            <option value="">Seleccione Personas</option>
                            {
                               personsData.map((per, index) => (
-                                 <option key={ index } value={ per.persons }>{ per.personsLabel }</option>
+                                 <option key={index} value={per.persons}>{per.personsLabel}</option>
                               ))
                            }
                         </Select>
@@ -102,7 +102,7 @@ const Booking = () => {
                            <option value="">Seleccione Horario</option>
                            {
                               hoursData.map((hr, index) => (
-                                 <option key={ index } value={ hr.commerceHourKey }>{ hr.commerceHour }</option>
+                                 <option key={index} value={hr.commerceHourKey}>{hr.commerceHour}</option>
                               ))
                            }
                         </Select>
@@ -111,14 +111,14 @@ const Booking = () => {
 
                   <div className="row mt-3 mb-5">
                      <div className="col-12">
-                        <img style={{ maxWidth:"100%" }} src={  process.env.PUBLIC_URL + "assets/map.png" } alt=""/>
+                        <img style={{ maxWidth: "100%" }} src={process.env.PUBLIC_URL + "assets/map.png"} alt="" />
                      </div>
                   </div>
                </div>
             </div>
             <ButtonFloat title="INGRESAR PLATOS" onClick={handleSubmit} />
-            <ModalAlert showModal={ showModal } setShowModal={ setShowModal } title="Información faltante"
-                        message="Fecha, hora y número de personas requerido." hidden="hidden"/>
+            <ModalAlert showModal={showModal} setShowModal={setShowModal} title="Información faltante"
+               message="Fecha, hora y número de personas requerido." hidden="hidden" />
          </div>
       </>
    );

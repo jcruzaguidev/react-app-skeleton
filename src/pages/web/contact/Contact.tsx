@@ -1,7 +1,7 @@
-import {Title} from "components";
-import {MenuWeb} from "layouts";
+import { Title } from "components";
+import { MenuWeb } from "layouts";
 import colors from "styles/colors";
-import {StyleContact} from "./Contact.styled";
+import { StyleContact } from "./Contact.styled";
 
 const Contact = () => {
 
@@ -22,9 +22,9 @@ const Contact = () => {
                            <p>Si tienes alguna consulta o sugerencia, nos puedes escribir a:</p>
                         </div>
                         <div className="col-sm-6">
-                            <Title style={{ color:colors.gray300 }} type="xs">Correo de contacto</Title>
-                             <hr />
-                             <a href="mailto:contacto@enunaapp.com">contacto@enunaapp.com</a>
+                           <Title style={{ color: colors.gray300 }} type="xs">Correo de contacto</Title>
+                           <hr />
+                           <a href="mailto:contacto@enunaapp.com">contacto@enunaapp.com</a>
                         </div>
                      </div>
                   </div>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import useTitle from 'hook/UI/useTitle';
 import { Alert, ButtonFloat, ProductCard } from 'components';
 import { MenuWeb } from 'layouts';
